@@ -1,14 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Post } from 'src/posts/entities/post.entity';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
 
-@Entity()
+@ObjectType()
 export class Category {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  Name: string;
-
-  @OneToMany((type) => Post, (post) => post.category)
-  posts: Post[];
+  @Field(() => Int, { description: 'Example field (placeholder)' })
+  exampleField: number;
 }
